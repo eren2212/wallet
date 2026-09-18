@@ -10,7 +10,7 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format_sql: true
+        format-sql: true
     show-sql: true
 
 server:
