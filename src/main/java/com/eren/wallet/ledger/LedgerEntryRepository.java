@@ -13,7 +13,7 @@ public interface LedgerEntryRepository extends JpaRepository<LedgerEntry, UUID> 
 	List<LedgerEntry> findByAccountIdOrderByCreatedAtAsc(UUID accountId);
 
 	@Query("""
-			SELECT COALESCE (SUM(CASE WHEN e.type = 'CREDIT' THEN e.amount ELSE -e.amount END ), 0
+			SELECT COALESCE (SUM(CASE WHEN e.type = 'CREDIT' THEN e.amount ELSE -e.amount END ), 0)
 			FROM  LedgerEntry e WHERE e.accoundId = :accountId
 			""")
 	BigDecimal calcuateBalance(@Param("accountId") UUID accountId);
