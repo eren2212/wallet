@@ -10,8 +10,13 @@ spring:
       ddl-auto: update
     properties:
       hibernate:
-        format-sql: true
+        format_sql: true
     show-sql: true
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG
+    org.hibernate.orm.jdbc.bind: TRACE
 
 server:
   port: 8080
