@@ -10,6 +10,7 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,6 +44,7 @@ public class LedgerEntry {
 	@Column(nullable = false, updatable = false)
 	private Instant createdAt;
 
+	@PrePersist
 	void onCreate() {
 		this.createdAt = Instant.now();
 	}

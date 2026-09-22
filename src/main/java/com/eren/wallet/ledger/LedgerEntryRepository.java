@@ -14,7 +14,7 @@ public interface LedgerEntryRepository extends JpaRepository<LedgerEntry, UUID> 
 
 	@Query("""
 			SELECT COALESCE (SUM(CASE WHEN e.type = 'CREDIT' THEN e.amount ELSE -e.amount END ), 0)
-			FROM  LedgerEntry e WHERE e.accoundId = :accountId
+			FROM  LedgerEntry e WHERE e.accountId = :accountId
 			""")
 	BigDecimal calcuateBalance(@Param("accountId") UUID accountId);
 

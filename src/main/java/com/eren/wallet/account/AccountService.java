@@ -21,10 +21,10 @@ public class AccountService {
 	private final LedgerEntryRepository ledgerEntryRepository;
 
 	@Transactional
-	public Account createAccount(String owerName, String currency) {
+	public Account createAccount(String ownerName, String currency) {
 		Account account = new Account();
-		account.setOverName(owerName);
-		account.setCurreny(currency);
+		account.setOwnerName(ownerName);
+		account.setCurrency(currency);
 
 		return accountRepository.save(account);
 	}

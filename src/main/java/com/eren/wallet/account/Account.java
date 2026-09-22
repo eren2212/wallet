@@ -26,10 +26,10 @@ public class Account {
 	private UUID id;
 
 	@Column(nullable = false, unique = true)
-	private String overName;
+	private String ownerName;
 
 	@Column(nullable = false, length = 3)
-	private String curreny;
+	private String currency;
 
 	@Column(nullable = false, updatable = false)
 	private Instant createdAt;
