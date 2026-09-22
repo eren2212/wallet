@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.eren.wallet.account.dto.AccountResponse;
 import com.eren.wallet.account.dto.CreateAccountRequest;
 import com.eren.wallet.account.dto.DepositRequest;
+import com.eren.wallet.account.dto.TransferRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -41,5 +42,10 @@ public class AccountController {
 	@GetMapping("/{id}/balance")
 	public BigDecimal getBalance(@PathVariable UUID id) {
 		return accountService.getBalance(id);
+	}
+
+	@PostMapping("/{id}/transfer")
+	public void transfer(@PathVariable UUID id, @RequestBody TransferRequest request) {
+		accountService.transfer(id, request.toAccountId(), request.amount());
 	}
 }
